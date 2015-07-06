@@ -1,0 +1,37 @@
+title: textile试用
+date: 2015-07-05 09:18:16
+tags: [textile, markdown]
+categories: hexo
+---
+试用了markdown，感觉功能还是比较简单，发现有一个 "par":https://github.com/limodou/par 扩展很不错，但是没有加入到hexo的扩展里，在hexo扩展中找到了 "pandoc":http://pandoc.org/ 的扩展，看上去非常强大，支持各种格式互相转化，不过扩展本身只能转一种，可以自己多创建几个函数。"textile":http://redcloth.org/textile/ 是一个功能更多的格式，接下来会抽空学习，本篇博文就是用 "textile":http://redcloth.org/textile/ 编写的，但是textile使用的人比较少，相应的语法介绍只有官方介绍，官方的页面那个丑啊，速度特别慢。写 "par":https://github.com/limodou/par 的插件给hexo暂时搁置，仅记录配置经历。
+
+<!-- more -->
+
+h1. 移植 "par":https://github.com/limodou/par 插件
+
+"par":https://github.com/limodou/par 本身使用python写的，我对 python 不熟悉，直接运行 example 会出错，说没有找到 *future* 这个包，安装这个依赖很麻烦，先要用 "ez_setup.py":https://bootstrap.pypa.io/ez_setup.py 安装 *setuptools* 
+
+bc. python ez_setup.py
+
+然后用命令 @easy_install future@ 安装 *future* 包，最后用 @sudo python setup.py@ 安装 "par":https://github.com/limodou/par 。
+
+安装好以后进行测试，按文档中所说用命令 @python markdown2html.py readme.md > readme.html@ 就可以完成转换，但实际中 example 的 *markdown2html.py* 已经改成了 *md2html.py* ，此外该文件会输出很多无关东西，需要注释掉 @print(result[0].render())@ 这句话，并把 @print(str(x, 'utf8').encode('gbk'))@ 改成 @print(x.encode('utf8'))@ 。
+
+安装插件可以参考["官方主页":https://hexo.io/zh-cn/docs/plugins.html]，除了修改官方提到的两个文件，还需要修改根目录下的 *package.json* ，在此注册新增加的插件。 *index.js* 可以参考 "pandoc":https://www.npmjs.com/package/hexo-renderer-pandoc 插件，注意python运行的环境是你执行 @hexo g@ 的地方。可以把文件后缀记为 @.par@ ，和 @.md@ 有所区分。为了让 "par":https://github.com/limodou/par 不是从文件读，而是从标准输入流读入，将 @t = text@ 改成 @t = sys.stdin.read()@ 。
+
+所有工作做完就可以生成页面了，但是我生成的页面会有几个问题
+
+1. 对强调符号无法解析
+2. 标题后带有难看的anchor
+3. 对 @<!-- more -->@ 无法解析
+
+以上问题还是很麻烦，暂时不想处理了，还是老老实实用原生渲染器吧。
+
+h1. 多级列表风格
+
+这一节和本篇主题无关，仅用于补充之前做得一点点修改。"jacman":https://github.com/wuchong/jacman 主题对多级列表各级的图标是一样的，看上去不太舒服，修改 @themes/jacman/source/css/_partial/article.styl@ 文件，在第115行后添加
+
+bc. li li
+      list-style square
+
+其中 @square@ 可以做其他替换，如果要对第三级或更高级进行定制可不断叠加 *li* 。
