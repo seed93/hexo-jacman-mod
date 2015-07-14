@@ -10,7 +10,14 @@ tags: [建站]
 <!-- more -->
 
 # Hello World
-建立一个`hello world`并没想象容易。按先后顺序安装*nvm*、*nodejs*、*npm*、*hexo*，遇到一些小问题，主要是顺序要搞对。安装完就可以在本地生成预览页面了。之后关联到[Github](https://github.com/)即可拥有一个[*.github.io](http://seed93.github.io)的主页。
+建立一个`hello world`并没想象容易。按先后顺序安装*nvm*、*nodejs*、*npm*、*hexo*，遇到一些小问题，主要是顺序要搞对。
+```
+wget https://raw.github.com/creationix/nvm/master/install.sh & sh install.sh // install nvm ls // get current version of nodejs, for example v0.12.5
+nvm install v0.12.5 // install nodejs
+npm install -g hexo // install hexo
+```
+
+安装完就可以在本地生成预览页面了。之后关联到[Github](https://github.com/)即可拥有一个[*.github.io](http://seed93.github.io)的主页。
 
 # 配置主题
 先对[Hexo](http://hexo.io/)本身的`_config.yml`进行配置，然后选择了[jacman](https://github.com/wuchong/jacman) 主题，对该主题进行进一步定制。大部分时间花在了这里。

@@ -6,30 +6,21 @@ tags: [CNN]
 
 
 {% raw %}
-<style type="text/css">
-<!--
-#pdf {
-float: left;
-margin: 10px 5%;
-padding-bottom: 33.98%;
-width: 21%;
-height: 0;
-}
--->
-</style>
-	<script type="text/javascript" src="/js/pdfobject.min.js"></script>
-	
 
-	<object	data="/source/DeepLearningTutorialClass1.pdf" 
-        type="application/pdf" 
-        width="100%" 
-        height="100%"
-		float: left;
-		margin: 10px 5%
-		padding-bottom: 33.98%
-		>
-		<p>It appears you don't have a PDF plugin for this browser. No biggie... you can <a href="/source/DeepLearningTutorialClass1.pdf">click here to download the PDF file.</a></p>
-	</object>
-	</div>
-    <a class="fancybox" data-fancybox-type="iframe" href="/source/DeepLearningTutorialClass1.pdf">Test pdf</a>
+	<style type="text/css">
+	<!--
+	#pdf {
+	width: 600px;
+	height: 450px;
+	}
+	-->
+	</style>
+	<script type="text/javascript" src="/js/pdfobject.min.js"></script>
+	<script type="text/javascript">
+      window.onload = function (){
+        var success = new PDFObject({ url: "/source/DeepLearningTutorialClass1.pdf" }).embed("pdf");
+        console.log(success);
+      };
+    </script>
+	<div id="pdf">It appears you don't have Adobe Reader or PDF support in this web browser. <a href="/source/DeepLearningTutorialClass1.pdf">Click here to download the PDF</a></div>
 {% endraw %}
