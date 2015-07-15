@@ -10,8 +10,8 @@ tags: [CNN]
 	<style type="text/css">
 	<!--
 	#pdf {
-	width: 600px;
-	height: 450px;
+	width: 100%;
+	height: 600px;
 	}
 	-->
 	</style>
