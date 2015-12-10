@@ -184,15 +184,24 @@ article
       border-collapse collapse
       border-spacing 0
       margin-top: 1em
+      display: block
+      overflow: auto
+      word-break: normal
+      word-break: keep-all
       th
         font-weight bold
-        border-bottom 2px solid lighten(color-gray,30%)
         padding 0.5em
         line-height: 1.3em
+        border:1px solid #ddd
       td 
-        border-bottom 1px solid lighten(color-gray,30%)
         padding 0.5em
         line-height: 1.3em
+        border:1px solid #ddd
+      tr
+        background-color: #fff
+        border-top: 1px solid #ccc
+      tr:nth-child(2n)
+        background-color: #f8f8f8
     .pullquote
       text-align left
       width 45%
