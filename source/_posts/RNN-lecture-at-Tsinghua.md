@@ -3,23 +3,8 @@ date: 2015-11-13 11:33:59
 tags:
 ---
 补发一下11月份在清华做有关RNN报告的slides
-{% raw %}
 
-	<style type="text/css">
-	<!--
-	#pdf {
-	width: 100%;
-	height: 600px;
-	}
-	-->
-	</style>
-	<script type="text/javascript" src="/js/pdfobject.min.js"></script>
-	<script type="text/javascript">
-      window.onload = function (){
-        var success = new PDFObject({ url: "/source/TextRecog1113.pdf" }).embed("pdf");
-        console.log(success);
-      };
-    </script>
-	<div id="pdf">It appears you don't have Adobe Reader or PDF support in this web browser. <a href="/source/DeepLearningTutorialClass1.pdf">Click here to download the PDF</a></div>
+{% raw %}
+	<object data="/source/TextRecog1113.pdf" type="application/pdf"  width="100%" height="500px">你肿么可以没有pdf阅读器呢，只好点 <a href="/source/TextRecog1113.pdf">这里</a>了呢。</object>
 {% endraw %}
 
