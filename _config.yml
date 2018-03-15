@@ -70,8 +70,8 @@ stylus:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@gitcafe.com:seed93/seed93.git
-  branch: gitcafe-pages
+  repository: git@github.com:seed93/seed93.github.io.git
+  branch: master
 
 marked:
   gfm: true
